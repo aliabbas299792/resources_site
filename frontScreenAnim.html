@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test Rotater</title>
+        <meta charset="utf-8">
+    </head>
+    <style>
+        img{
+            height:100%;
+        }
+    
+        body{
+            box-sizing:border-box;
+            padding:0;
+            margin:0;
+            font-size:0;
+        }
+    
+        #rotate1{
+            position:relative;
+            width:100px;
+            height:100px;
+            background-color:blue;
+            display:inline-block;
+
+        }
+        #rotate2{
+            position:relative;
+            width:100px;
+            height:100px;
+            background-color:green;
+            display:inline-block;
+
+        }
+        #rotate3{
+            position:relative;
+            width:100px;
+            height:100px;
+            background-color:yellow;
+            display:inline-block;
+
+        }
+        #rotate4{
+            position:relative;
+            width:100px;
+            height:100px;
+            background-color:red;
+            display:inline-block;
+        }
+        
+        #container{
+            position:absolute;
+            transform:translate(-50%,-50%);
+            top:50%;
+            left:50%;
+            transform:translate(-50%,0);
+        }
+    </style>
+    <body>
+<div id="container">
+            <div id="rotate1" style="left: 150px;filter: blur(3px);transform: scale(1.5,1.5);"><img src="http://www.navipedia.net/images/a/a9/Example.jpg"></div>
+            <div id="rotate2" style="
+    right: 60px;
+    filter: blur(3px);
+    transform: scale(1.5,1.5);
+"><img src="http://www.w3schools.com/css/img_fjords.jpg"></div>
+            <div id="rotate3" style="
+    top: 20px;
+    transform: scale(2,2);
+    z-index: 10;
+"><img src="http://www.navipedia.net/images/a/a9/Example.jpg"></div>
+            <div id="rotate4" style="
+    bottom: 5px;
+    filter: blur(5px);
+"><img src="https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider2.jpg"></div>
+        </div>
+    </body>
+    <script>
+        
+    </script>
+</html>

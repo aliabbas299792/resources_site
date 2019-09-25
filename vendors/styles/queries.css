@@ -1,0 +1,252 @@
+@media screen and (max-width:540px){
+    nav ul{
+        display:block;
+        height:0px;
+        overflow:auto;
+        overflow-y:hidden;
+        float:none;
+        background-color:#222;
+        transition:height .2s ease;
+    }
+    
+    .mainTitle{
+        font-size:150%;
+    }
+    
+    .row{
+        padding:2px;
+    }
+    
+    nav{
+        font-size:0;
+    }
+    
+    nav img{
+        float:none;
+    }
+    
+    nav #login{
+        font-size:16px;
+    }
+    
+    nav ul li{
+        font-size:16px;
+        float:none;
+        background-color:#333;
+    }
+    
+    nav ul li:hover{
+        border-bottom:none;
+        background-color:#555;
+        transition:background-color .2s ease;
+    }
+    
+    nav #smallMenu{
+        display:inline-block;
+    }
+    
+    nav #smallMenu i{
+        color:#fff;
+    }
+    
+    nav #bigHome{
+        display:none;
+    }
+    
+    #loggedIn table tr td{
+        padding:3px;
+    }
+}
+
+@media screen and (max-width:380px){
+    #loggedIn #profileSettings_settings tr td{
+        display:block;
+        text-align:center;
+    }
+}
+
+@media screen and (min-width:768px){
+    .col-1-12-small{
+        width:8.333333%;
+        display:inline-block;
+    }
+    
+    .col-2-12-small{
+        width:16.6666666%;
+        display:inline-block;
+    }
+    
+    .col-3-12-small{
+        width:25%;
+        display:inline-block;
+    }
+    
+    .col-4-12-small{
+        width:33.333333%;
+        display:inline-block;
+    }
+    
+    .col-5-12-small{
+        width:41.6666666%;
+        display:inline-block;
+    }
+    
+    .col-6-12-small{
+        width:50%;
+        display:inline-block;
+    }
+    
+    .col-7-12-small{
+        58.333333%;
+        display:inline-block;
+    }
+    
+    .col-8-12-small{
+        66.6666666%;
+        display:inline-block;
+    }
+    
+    .col-9-12-small{
+        width:75%;
+        display:inline-block;
+    }
+    
+    .col-10-12-small{
+        width:81.333333%;
+        display:inline-block;
+    }
+    
+    .col-11-12-small{
+        width:91.6666666%;
+        display:inline-block;
+    }
+    
+    .col-12-12-small{
+        width:100%;
+        display:inline-block;
+    }
+}
+
+@media screen and (min-width:992px){
+    .col-1-12-med{
+        width:8.333333%;
+        display:inline-block;
+    }
+    
+    .col-2-12-med{
+        width:16.6666666%;
+        display:inline-block;
+    }
+    
+    .col-3-12-med{
+        width:25%;
+        display:inline-block;
+    }
+    
+    .col-4-12-med{
+        width:33.333333%;
+        display:inline-block;
+    }
+    
+    .col-5-12-med{
+        width:41.6666666%;
+        display:inline-block;
+    }
+    
+    .col-6-12-med{
+        width:50%;
+        display:inline-block;
+    }
+    
+    .col-7-12-med{
+        58.333333%;
+        display:inline-block;
+    }
+    
+    .col-8-12-med{
+        66.6666666%;
+        display:inline-block;
+    }
+    
+    .col-9-12-med{
+        width:75%;
+        display:inline-block;
+    }
+    
+    .col-10-12-med{
+        width:81.333333%;
+        display:inline-block;
+    }
+    
+    .col-11-12-med{
+        width:91.6666666%;
+        display:inline-block;
+    }
+    
+    .col-12-12-med{
+        width:100%;
+        display:inline-block;
+    }
+}
+
+@media screen and (min-width:1600px){
+    .col-1-12{
+        width:8.333333%;
+        display:inline-block;
+    }
+    
+    .col-2-12{
+        width:16.6666666%;
+        display:inline-block;
+    }
+    
+    .col-3-12{
+        width:25%;
+        display:inline-block;
+    }
+    
+    .col-4-12{
+        width:33.333333%;
+        display:inline-block;
+    }
+    
+    .col-5-12{
+        width:41.6666666%;
+        display:inline-block;
+    }
+    
+    .col-6-12{
+        width:50%;
+        display:inline-block;
+    }
+    
+    .col-7-12{
+        58.333333%;
+        display:inline-block;
+    }
+    
+    .col-8-12{
+        66.6666666%;
+        display:inline-block;
+    }
+    
+    .col-9-12{
+        width:75%;
+        display:inline-block;
+    }
+    
+    .col-10-12{
+        width:81.333333%;
+        display:inline-block;
+    }
+    
+    .col-11-12{
+        width:91.6666666%;
+        display:inline-block;
+    }
+    
+    .col-12-12{
+        width:100%;
+        display:inline-block;
+    }
+}

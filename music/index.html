@@ -1,0 +1,237 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<link href='https://fonts.googleapis.com/css?family=Lato:400,300italic,300' rel='stylesheet' type='text/css'>
+		<title>The Fate Of Mankind's Chatango Profile</title>
+	</head>
+	
+	<body>
+			
+			<div id="loading" class="shown">
+				<img id="loading2" src="loading.gif">
+			</div>
+			
+			
+			<div id="progressBar" class="progressBar">
+				<div id="marker" class="marker"></div>
+			</div>
+			<ul id="selection" class="selection">
+				<li id="theme" class="selected">The girl who fell from the sky city</li>
+			</ul>
+	
+			<div class="buttonContainer">
+			    <h1 id="resize">Welcome to my profile!</h1>
+                <p id="resize">Hi, I'm an otaku<br> I have a year or so experience in Photoshop, Illustrator, HTML, CSS and Cinema 4D and,<br> 6 months or so worth of practice in PHP and, 3 in JavaScript.<br> I love animations by the way. By that I mean Anime! Ha.</p>
+                <br>
+                <br>
+				<button id="audioBtn" class="pause">Pause</button>
+					<br>
+					<br>
+				<button class="audioBtnStop" id="audioBtnStop">Stop</button>
+			</div>
+			
+			<audio loop autoplay id="music" src="laptuaTheme.mp3">
+			</audio>
+	
+			<script>
+			
+			var elResize = document.getElementById('resize');
+			
+			var music = document.getElementById('music');
+			var fumes = document.getElementById('theme');
+			var selection = document.getElementById('selection');
+			
+			music.pause();
+			
+			function resizeChange(){
+			    if(window.innerWidth < 800){
+			        elResize.setAttribute('style','width:90vw;');
+			    }else{
+			        elResize.setAttribute('style','width:auto;')
+			    }
+			}
+			
+			window.addEventListener('load',resizeChange,false);
+			window.addEventListener('resize',resizeChange,false);
+			
+			window.onload = function(){
+			    loading.setAttribute('class','hidden');
+			    music.play();
+			}
+			
+			function getTarget(e){
+				if(!e){
+				e = event;
+				}
+				return e.target || e.srcElement;
+			}
+			
+			
+			function fullStop(){
+				music.currentTime = 0;
+				music.pause();
+				audioBtn.innerHTML = 'Play';
+				audioBtn.setAttribute('class','play');
+				marker.setAttribute('style','left: ' + 0 + 'px');
+			}
+			
+			function fullPause(){
+				audioBtn.innerHTML = 'Play';
+				audioBtn.setAttribute('class','play');
+				music.pause();
+			}
+			
+			function fullPlay(){
+				audioBtn.innerHTML = 'Pause';
+				audioBtn.setAttribute('class','pause');
+				music.play();
+			}
+			
+			function canPlay(){
+				document.getElementById('loading').setAttribute('class','hidden');
+				document.getElementById('loading2').setAttribute('class','hidden');
+			}
+			
+			music.addEventListener('canplaythrough',canPlay,false);
+			
+			setTimeout(function(){
+				
+				var audioBtn = document.getElementById('audioBtn');
+				var audioBtnStop = document.getElementById('audioBtnStop');
+				var pb = document.getElementById('progressBar');
+				
+				function musicPlayPause(){
+					if(audioBtn.textContent == 'Play'){
+						audioBtn.innerHTML = 'Pause';
+						audioBtn.setAttribute('class','pause');
+						music.play();
+					}else if(audioBtn.textContent == 'Pause'){
+						audioBtn.innerHTML = 'Play';
+						audioBtn.setAttribute('class','play');
+						music.pause();
+					}
+				}
+				
+				function musicStop(){
+					music.pause();
+					music.currentTime = 0;
+					audioBtn.innerHTML = 'Play';
+					audioBtn.setAttribute('class','play');
+				}
+				
+				audioBtnStop.addEventListener('click',musicStop,false);
+				audioBtn.addEventListener('click',musicPlayPause,false);
+				
+				var windowWidth = window.innerWidth;
+				var perUnitPercent = music.duration;
+				var perPixelUnit = (windowWidth-20)/music.duration;
+				
+				
+				
+				function resize(){
+					windowWidth = window.innerWidth;
+					perUnitPercent = music.duration;
+					perPixelUnit = (windowWidth-20)/music.duration;
+				}
+				
+				window.addEventListener('resize',resize,false);
+				
+				var marker = document.getElementById('marker');
+				
+				/*function progressPercentUpdate(){
+					var currentPercent = perUnitPercent * music.currentTime;
+					console.log(windowWidth);
+					console.log(currentPercent + '%');
+					console.log((perPixelUnit * music.currentTime) + 'px');
+				}*/
+				
+				function progressBar(){
+					var pixels = perPixelUnit * music.currentTime;
+					marker.setAttribute('style','left: ' + pixels + 'px');
+				}
+				
+				music.addEventListener('timeupdate',progressBar,false);
+				
+				function progressBarMouseDown(){
+					audioBtn.innerHTML = 'Play';
+					audioBtn.setAttribute('class','play');
+					music.pause();
+				}
+				
+				function progressBarMouseUp(){
+					audioBtn.innerHTML = 'Pause';
+					audioBtn.setAttribute('class','pause');
+					music.play();
+				}
+				
+				marker.addEventListener('mousedown',progressBarMouseDown,false);
+				pb.addEventListener('mouseup',progressBarMouseUp,false);
+				
+				function pbUpdateTime(event){
+					windowWidth = window.innerWidth;
+					perUnitPercent = music.duration;
+					perPixelUnit = (windowWidth-20)/music.duration;
+					var mouseX = event.clientX;
+					marker.setAttribute('style','left: ' + mouseX + 'px');
+					music.currentTime = mouseX / perPixelUnit;
+				}
+				
+				pb.addEventListener('mouseup',pbUpdateTime,false);
+				
+				music.addEventListener('ended',musicPlayPause,false);
+				
+				/*
+				
+						setInterval(function(){
+										music.volume += 0.1;
+										if(music.volume > 1){
+											music.volume = 1;
+										}
+									},
+						100);
+						
+				*/
+				
+				
+				
+				function keyBoardCommands(e){
+					audioBtn.blur();
+					audioBtnStop.blur();
+				
+					if(e.keyCode == 39){
+						music.currentTime += 5;
+					}
+					if(e.keyCode == 37){
+						music.currentTime -= 5;
+					}
+					if(e.keyCode == 40){
+						if(music.volume >= 1){
+							music.volume = music.volume - 0.1;
+						}else{
+							music.volume = 0.01;
+						}
+					}
+					if(e.keyCode == 38){
+						if(music.volume >= 0.9){
+							music.volume - 0.1;
+						}else{
+							music.volume = music.volume + 0.1;
+						}
+					}
+					if(e.keyCode == 32){
+						if(music.paused){
+							fullPlay();
+						}else if(!music.paused){
+							fullPause();
+						}
+					}
+				
+				}
+				
+				window.addEventListener('keydown',function(e){keyBoardCommands(e);},false);
+			
+			},1000);
+			
+			</script>
+	</body>
+</html>
